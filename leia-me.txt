@@ -1,0 +1,67 @@
+CALCULAFACIL — VERSAO OFICIAL GRAFITE + LARANJA
+
+Esta e a versao preparada para publicacao do novo visual do CalculaFacil.
+
+ANTES DE PUBLICAR
+1. Extraia todo o conteudo deste ZIP para uma pasta.
+2. Confira que index.html, robots.txt e sitemap.xml estao diretamente na raiz da pasta extraida.
+3. Abra index.html localmente para uma ultima conferida visual. Os links internos agora usam caminhos relativos para funcionar tambem nessa previa local.
+
+PUBLICAR NO NETLIFY
+1. Entre no painel do Netlify e abra o projeto calculafacilonline.
+2. Faca deploy manual enviando o conteudo inteiro da pasta extraida (nao envie somente o ZIP).
+3. Mantenha index.html, robots.txt, sitemap.xml e googlea69257bc2ca1363.html na raiz.
+4. Aguarde o status Published/Publicado.
+
+O QUE ESTA INCLUIDO
+- Identidade visual Grafite + Laranja na pagina inicial, calculadoras, guias e paginas institucionais.
+- Nove calculadoras e nove guias completos.
+- Historico detalhado e repeticao de calculos, favoritos, tema salvo e acoes de copiar/compartilhar.
+- Dicas educativas curtas junto das calculadoras.
+- Paginas Sobre, Contato e Politica de Privacidade, formulario Netlify e pagina de confirmacao.
+- Sitemap com 13 URLs e robots.txt.
+- Arquivo de verificacao do Google Search Console.
+- Google Analytics 4 (G-CK95TYT43P), com coleta condicionada ao consentimento e evento calculator_open.
+
+APOS PUBLICAR
+- Teste calculadoras, historico, repetir calculo, favoritos, tema, copiar/compartilhar e links dos guias.
+- Envie um teste pelo formulario de contato e confirme a submissao no painel Forms do Netlify.
+- Aceite estatisticas em uma sessao de teste e confira o relatorio Tempo real no Google Analytics.
+- Execute PageSpeed Insights novamente; as notas podem variar conforme o teste.
+
+NOTAS IMPORTANTES
+- O historico, favoritos e tema sao armazenados localmente no navegador; nao sincronizam automaticamente entre dispositivos.
+- O formulario depende de Forms estar habilitado no Netlify.
+- A coleta do Analytics depende da escolha de consentimento do visitante.
+- A presenca de URLs no sitemap nao garante indexacao no Google.
+
+REVISAO DE CANONICAL (SEO)
+- As 13 URLs do sitemap possuem uma tag canonical absoluta e autorreferente.
+- Cada guia e pagina institucional aponta para o proprio endereco oficial no dominio calculafacilonline.netlify.app.
+- A pagina de confirmacao do formulario tambem possui canonical propria, mas continua fora do sitemap.
+- A canonical e uma indicacao para o Google; nao garante indexacao.
+
+
+ATUALIZACAO DOS NOVE GUIAS EDUCATIVOS
+- Os nove guias foram reorganizados no mesmo layout grafite + laranja aprovado.
+- Todas as paginas possuem layout responsivo para celulares, tablet e computador.
+- Cada guia inclui explicacao, formula, passos, exemplos resolvidos, erros comuns, FAQ e calculadora interativa especifica.
+- As URLs existentes e canonicals foram mantidas. O sitemap continua com as 13 URLs.
+- O tema claro/escuro usa a mesma preferencia cf-dark da pagina inicial.
+- O aviso de estatisticas e a escolha de consentimento do Analytics foram preservados.
+- Teste os nove guias antes de publicar. A presenca no sitemap nao garante indexacao.
+
+
+ATUALIZACAO — MENU SUPERIOR
+- Adicionado menu de tres linhas no topo em todas as paginas principais.
+- O menu abre links para Blog e guias, Sobre nos e Contato.
+- Na pagina inicial, Blog e guias leva a uma secao com links diretos para os nove guias.
+- Links do rodape foram mantidos como alternativa.
+- Menu pode ser aberto por toque/clique, fechado clicando fora ou pressionando Escape, e tem atributos ARIA.
+- Os caminhos do menu foram ajustados para paginas iniciais, guias, paginas institucionais e confirmacao de contato.
+
+AJUSTE DE POSICIONAMENTO DO CABECALHO
+- Botao do menu de tres linhas alinhado a esquerda.
+- Marca CalculaFacil centralizada horizontal e verticalmente no cabecalho.
+- Painel do menu abre alinhado a esquerda, abaixo do botao.
+- Ajuste adicional para telas estreitas (360 px ou menos).
