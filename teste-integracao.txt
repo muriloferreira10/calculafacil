@@ -1,0 +1,1 @@
+Teste de integração entre GitHub e Netlify - CalculaFácil.
