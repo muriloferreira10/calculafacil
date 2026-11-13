@@ -742,7 +742,6 @@ function readStoredJSON(storageKey,fallback){try{const value=JSON.parse(localSto
 const savedHistory=readStoredJSON(HISTORY_KEY,[]);
 if(Array.isArray(savedHistory))history=savedHistory.filter(x=>x&&typeof x==="object").slice(-50);
 const savedFavs=readStoredJSON("cf-favs",[]),favs=Array.isArray(savedFavs)?savedFavs:[];
-const savedUsage=readStoredJSON("cf-usage",{}),usage=savedUsage&&typeof savedUsage==="object"?savedUsage:{};
 const originalCards=Array.from(document.querySelectorAll("#cards .card"));
 const names={basic:"Calculadora básica",percent:"Porcentagem",discount:"Desconto",rule:"Regra de três",average:"Média simples",increase:"Reajuste / acréscimo",sci:"Calculadora científica",grades:"Notas escolares",interest:"Juros simples e compostos"};
 function updateFavs(){
@@ -884,7 +883,6 @@ function open(k){
     const steps=$("learningSteps");steps.innerHTML="";
     (guide.steps||[]).forEach(step=>{const li=document.createElement("li");li.textContent=step;steps.append(li);});
   }
-  usage[k]=(usage[k]||0)+1;localStorage.setItem("cf-usage",JSON.stringify(usage));
   let [t,fs]=configs[k];$("title").textContent=t;
   const isBasic=k==="basic";
   $("basicUI").style.display=isBasic?"block":"none";
@@ -960,7 +958,7 @@ function formKeyPress(k){
 }
 $("formKeys").onclick=e=>{const b=e.target.closest("[data-form-key]");if(b)formKeyPress(b.dataset.formKey)};
 $("basicKeys").onclick=e=>{let b=e.target.closest("[data-key]");if(b)try{basicPress(b.dataset.key)}catch(err){$("basicOutput").textContent=err.message}};
-$("cards").addEventListener("click",e=>{const favButton=e.target.closest(".fav");if(favButton){const card=favButton.closest(".card");if(!card)return;const k=card.dataset.k;const i=favs.indexOf(k);if(i>=0)favs.splice(i,1);else favs.push(k);localStorage.setItem("cf-favs",JSON.stringify(favs));updateFavs();return}const openButton=e.target.closest(".card-open");if(openButton){const card=openButton.closest(".card");if(card)open(card.dataset.k)}});
+$("cards").addEventListener("click",e=>{const favButton=e.target.closest(".fav");if(favButton){const card=favButton.closest(".card");if(!card)return;const k=card.dataset.k;const i=favs.indexOf(k);if(i>=0)favs.splice(i,1);else favs.push(k);try{localStorage.setItem("cf-favs",JSON.stringify(favs));}catch(err){/* Favoritos continuam nesta sessão. */}updateFavs();return}const openButton=e.target.closest(".card-open");if(openButton){const card=openButton.closest(".card");if(card)open(card.dataset.k)}});
 function applyTheme(isDark){
   document.body.classList.toggle("dark",!!isDark);
   $("theme").textContent=isDark?"☀️ Modo claro":"🌙 Modo escuro";
