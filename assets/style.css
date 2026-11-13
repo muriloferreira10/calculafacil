@@ -598,3 +598,16 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
 @media(max-width:520px){
   .cf-header-inner .cf-menu-panel-top{min-height:42px!important;padding:3px 11px 7px 13px!important;gap:20px!important}
 }
+
+/* ===== paginas-das-calculadoras ===== */
+.page-guide-link{margin:18px 0 0;font-size:1.02rem}
+.other-calcs{margin:34px 0 10px}
+.other-calcs h2{margin:0 0 12px}
+.other-calcs ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.other-calcs li{display:flex}
+.other-calcs a{flex:1;display:block;padding:13px 16px;background:#FFFFFF;color:#A94F08;border:1px solid #E1E3E7;border-radius:12px;font-weight:700;text-decoration:none;transition:border-color 160ms ease}
+.other-calcs a:hover,.other-calcs a:focus-visible{border-color:#F28C28;text-decoration:underline}
+.dark .other-calcs a{background:#1D2026!important;color:#FFB66E!important;border-color:#383C44!important}
+.dark .other-calcs a:hover,.dark .other-calcs a:focus-visible{border-color:#F28C28!important}
+.dark .page-guide-link .learning-link{color:#FFB66E}
+@media(max-width:520px){.other-calcs ul{grid-template-columns:1fr}}
