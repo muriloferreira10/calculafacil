@@ -627,3 +627,6 @@ body.calc-open:not(.calc-page) main > h2,
 body.calc-open:not(.calc-page) .home-guide-note,
 body.calc-open:not(.calc-page) .toolbar,
 body.calc-open:not(.calc-page) .panel{display:none!important}
+
+/* D3 - calculadora com largura limitada no computador */
+.calc{max-width:560px;margin-left:auto;margin-right:auto}
