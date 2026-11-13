@@ -634,3 +634,7 @@ body.calc-open:not(.calc-page) .panel{display:none!important}
 /* D4 - visor com aviso menor quando o campo está vazio */
 .form-screen-value.is-empty{font-size:1.05rem!important;font-weight:500!important;opacity:.7;min-height:1.2em}
 .form-screen{min-height:100px!important}
+
+/* D5 - contraste do laranja do título no modo claro */
+h1 span{color:#B85C00!important}
+body.dark h1 span{color:#F28C28!important}
