@@ -898,7 +898,7 @@ function open(k){
     if(type==="select"){
       e=document.createElement("select");opts.split(",").forEach((v,i)=>{let o=document.createElement("option");o.value=i;o.textContent=v;e.append(o)});
     }else{
-      e=document.createElement("input");e.type="text";e.inputMode="none";e.readOnly=true;e.autocomplete="off";e.placeholder=type==="text"?"Ex.: 7, 8, 9":"Toque para selecionar";
+      e=document.createElement("input");e.type="text";e.inputMode="none";e.readOnly=true;e.autocomplete="off";e.placeholder=type==="text"?"Ex.: 7.5; 8; 9.5":"Toque para selecionar";
       if(!activeFieldId)activeFieldId=id;
     }
     e.id="f"+id;d.append(l,e);$("fields").append(d);
@@ -907,7 +907,7 @@ function open(k){
       e.addEventListener("focus",()=>setActiveField(id));
     }
   });
-  $("hint").textContent=isBasic?"Use o teclado para fazer suas contas.":"Selecione um campo e use o teclado para preencher. Toque em Próximo para avançar.";
+  $("hint").textContent=isBasic?"Use o teclado para fazer suas contas.":(k==="average"?"Separe os números com ponto e vírgula (;). Os decimais usam ponto: 7.5 e não 7,5. O botão \",\" insere o separador.":"Selecione um campo e use o teclado para preencher. Toque em Próximo para avançar.");
   $("result").style.display="none";$("shareResult").hidden=true;$("shareBasic").hidden=true;$("copyFull").hidden=true;$("copyBasicResult").hidden=true;$("copyBasicFull").hidden=true;lastShareText="";lastExpression="";$("cards").style.display="none";$("calc").style.display="block";
   if(!isBasic)updateFormScreen();
   $("calc").scrollIntoView({behavior:"smooth",block:"start"});
@@ -918,7 +918,7 @@ case"basic":{let a=n("a"),b=n("b"),o=+$("fop").value;if(o===3&&b===0)throw Error
 case"percent":{let p=n("p"),v=n("v");r=v*p/100;expression=f(p)+"% de "+f(v);d=f(p)+"% de "+f(v);break}
 case"discount":{let v=n("v"),p=n("p");if(v<0||p<0||p>100)throw Error("Desconto deve ficar entre 0% e 100%.");r=v*(1-p/100);cash=true;expression="Desconto de "+f(p)+"% sobre R$ "+f(v);d="Você economiza R$ "+f(v*p/100);break}
 case"rule":{let a=n("a"),b=n("b"),c=n("c");if(!a)throw Error("Valor A não pode ser zero.");r=b*c/a;expression="("+f(b)+" × "+f(c)+") ÷ "+f(a);d="X = (B × C) ÷ A";break}
-case"average":{let s=$("fnums").value.trim(),a=s.split(",").map(Number);if(!s||a.some(x=>!Number.isFinite(x)))throw Error("Digite números separados por vírgula.");r=a.reduce((x,y)=>x+y,0)/a.length;expression="Média de: "+a.map(f).join(", ");d="Soma dividida pela quantidade de números ("+a.length+").";break}
+case"average":{let s=$("fnums").value.trim(),sep=s.includes(";")?";":(s.includes(" ")&&!s.includes(",")?" ":","),a=s.split(sep).map(x=>x.trim()).filter(x=>x!=="").map(Number);if(!s||!a.length||a.some(x=>!Number.isFinite(x)))throw Error("Digite números separados por ponto e vírgula. Decimais usam ponto.");r=a.reduce((x,y)=>x+y,0)/a.length;expression="Média de: "+a.map(f).join(", ");d="Soma dividida pela quantidade de números ("+a.length+").";break}
 case"increase":{let v=n("v"),p=n("p");if(v<0||p<0)throw Error("Use valores positivos.");r=v*(1+p/100);cash=true;expression="Aumento de "+f(p)+"% sobre R$ "+f(v);d="Aumento aplicado: R$ "+f(v*p/100);break}
 case"sci":{let a=n("a"),o=+$("fop").value,rad=a*Math.PI/180,opNames=["Quadrado","Raiz quadrada","Potência","Seno","Cosseno","Tangente","Log base 10"];if(o===1&&a<0||o===6&&a<=0)throw Error("Essa operação exige um número positivo.");if(o===5&&Math.abs(Math.cos(rad))<1e-10)throw Error("Tangente não definida para esse ângulo.");let b=o===2?n("b"):null;r=[a*a,Math.sqrt(a),Math.pow(a,b),Math.sin(rad),Math.cos(rad),Math.tan(rad),Math.log10(a)][o];expression=opNames[o]+" de "+f(a)+(o===2?" elevado a "+f(b):[3,4,5].includes(o)?"°":"");d="Resultado da operação científica escolhida.";break}
 case"grades":{let a=n("n1"),b=n("n2"),c=n("n3"),g=n("goal");r=(a+b+c)/3;expression="Notas "+[a,b,c].map(f).join(", ")+"; meta desejada: "+f(g);d="Média atual: "+f(r)+". "+(r>=g?"Meta atingida!":"Para média "+f(g)+" em 4 notas, precisa tirar "+f(g*4-a-b-c)+" na próxima nota.");break}
@@ -942,15 +942,16 @@ function formKeyPress(k){
   else if(k==="back")value=value.slice(0,-1);
   else if(k==="sign"){
     if(key==="average"){
-      const parts=value.split(","),lastPart=parts.pop()||"";
-      parts.push(lastPart.startsWith("-")?lastPart.slice(1):"-"+lastPart);value=parts.join(",");
+      const cut=Math.max(value.lastIndexOf(";"),value.lastIndexOf(","),value.lastIndexOf(" "))+1;
+      const head=value.slice(0,cut),lastPart=value.slice(cut);
+      value=head+(lastPart.startsWith("-")?lastPart.slice(1):"-"+lastPart);
     }else value=value.startsWith("-")?value.slice(1):"-"+value;
   }else if(k===","){
     if(key==="average"){
-      if(!value.endsWith(",")&&value.length<70)value+=",";
+      if(!/[;,]\s*$/.test(value)&&value.length<70)value+="; ";
     }else if(!value.includes(".")&&value.length<70)value+=".";
   }else if(k==="."){
-    const lastPart=key==="average"?(value.split(",").pop()||""):value;
+    const lastPart=key==="average"?(value.split(/[;,\s]/).pop()||""):value;
     if(!lastPart.includes(".")&&value.length<70)value+=".";
   }else if(/^\d$/.test(k)&&value.length<70){value+=k;}
   field.value=value;
