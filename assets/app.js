@@ -137,6 +137,7 @@ function open(k){
     });
   }
   key=k;
+  document.body.classList.add("calc-open");
   const guide=learningGuides[k];
   if(guide){
     $("learningTitle").textContent=guide.title;
@@ -253,7 +254,7 @@ $("copyFull").onclick=()=>copyText((names[key]||"Calculadora")+"\n"+(lastExpress
 updateFavs();updateHistory();$("go").onclick=run;
 $("clear").onclick=()=>{$("fields").querySelectorAll("input").forEach(e=>e.value="");$("fields").querySelectorAll("select").forEach(e=>e.selectedIndex=0);$("result").style.display="none";$("shareResult").hidden=true;$("copyFull").hidden=true;last="";lastExpression="";lastShareText="";updateFormScreen()};
 $("copy").onclick=()=>copyText(last,"Resultado copiado!");
-$("back").onclick=()=>{$("calc").style.display="none";$("cards").style.display="grid"};
+$("back").onclick=()=>{$("calc").style.display="none";$("cards").style.display="grid";document.body.classList.remove("calc-open");$("cards").scrollIntoView({behavior:"smooth",block:"start"})};
 $("search").oninput=e=>{let q=e.target.value.toLowerCase();$("cards").querySelectorAll(".card").forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?"":"none")};
 document.addEventListener("keydown",function(ev){
   const calc=$("calc");

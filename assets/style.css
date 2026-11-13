@@ -620,3 +620,10 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
   .cf-consent-actions{display:flex;gap:8px}
   .cf-consent-actions button{flex:1;min-height:40px;font-size:.9rem}
 }
+
+/* D2 - calculadora aberta sem o topo da home (nas páginas de calculadora o H1 e a introdução ficam) */
+body.calc-open:not(.calc-page) .hero,
+body.calc-open:not(.calc-page) main > h2,
+body.calc-open:not(.calc-page) .home-guide-note,
+body.calc-open:not(.calc-page) .toolbar,
+body.calc-open:not(.calc-page) .panel{display:none!important}
