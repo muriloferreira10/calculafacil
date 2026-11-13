@@ -611,3 +611,12 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
 .dark .other-calcs a:hover,.dark .other-calcs a:focus-visible{border-color:#F28C28!important}
 .dark .page-guide-link .learning-link{color:#FFB66E}
 @media(max-width:520px){.other-calcs ul{grid-template-columns:1fr}}
+
+/* ===== ajustes-visuais ===== */
+/* D1 - banner de estatísticas compacto no celular */
+@media (max-width:520px){
+  #cf-analytics-consent{padding:10px 12px!important;bottom:8px!important;left:8px!important;right:8px!important;width:calc(100% - 16px)!important;border-radius:12px}
+  #cf-analytics-consent p{font-size:.8rem!important;line-height:1.4!important;margin:0 0 8px!important}
+  .cf-consent-actions{display:flex;gap:8px}
+  .cf-consent-actions button{flex:1;min-height:40px;font-size:.9rem}
+}
