@@ -662,18 +662,18 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
       
       <div class="cf-menu-group" role="group" aria-label="Navegação">
         <span class="cf-menu-heading">NAVEGAÇÃO</span>
-        <a href="index.html">Início</a>
-        <a href="index.html#cards">Calculadoras</a>
-        <a href="index.html#cards">Guias nas calculadoras</a>
-        <a href="index.html?abrir=favoritas#cards">Minhas favoritas</a>
-        <a href="index.html?abrir=historico#cards">Histórico de cálculos</a>
+        <a href="/">Início</a>
+        <a href="/#cards">Calculadoras</a>
+        <a href="/#guides-title">Guias nas calculadoras</a>
+        <a href="/?abrir=favoritas#cards">Minhas favoritas</a>
+        <a href="/?abrir=historico#cards">Histórico de cálculos</a>
       </div>
       <div class="cf-menu-divider" aria-hidden="true"></div>
       <div class="cf-menu-group" role="group" aria-label="Sobre o site">
         <span class="cf-menu-heading">SOBRE O SITE</span>
-        <a href="sobre/index.html">Sobre nós</a>
-        <a href="contato/index.html">Contato</a>
-        <a href="politica-de-privacidade/index.html">Política de privacidade</a>
+        <a href="/sobre/">Sobre nós</a>
+        <a href="/contato/">Contato</a>
+        <a href="/politica-de-privacidade/">Política de privacidade</a>
       </div>
     </nav>
   </div>
@@ -720,7 +720,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
   <p id="learningText">Escolha uma calculadora para ver uma explicação rápida e um exemplo.</p>
   <ol class="learning-steps" id="learningSteps" aria-label="Passos para entender o cálculo"></ol>
   <div class="learning-example" id="learningExample"></div>
-  <a class="learning-link" id="learningLink" href="como-calcular-porcentagem/index.html">Aprenda mais sobre este cálculo →</a>
+  <a class="learning-link" id="learningLink" href="/como-calcular-porcentagem/">Aprenda mais sobre este cálculo →</a>
 </section>
 </section>
 
@@ -738,7 +738,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}
   <article><h3><a href="como-calcular-juros-simples-e-compostos/">Como calcular juros simples e compostos</a></h3><p>Compare os dois tipos de juros e veja como o valor evolui ao longo do tempo.</p></article>
 </section>
 </main>
-<footer><div class="wrap"><div>© 2026 CalculaFácil · Feito para facilitar suas contas.</div><nav class="footer-links" aria-label="Links institucionais"><a href="sobre/index.html">Sobre</a><a href="contato/index.html">Contato</a><a href="politica-de-privacidade/index.html">Política de Privacidade</a><button type="button" class="cf-consent-manage">Preferências de estatísticas</button></nav></div></footer>
+<footer><div class="wrap"><div>© 2026 CalculaFácil · Feito para facilitar suas contas.</div><nav class="footer-links" aria-label="Links institucionais"><a href="/sobre/">Sobre</a><a href="/contato/">Contato</a><a href="/politica-de-privacidade/">Política de Privacidade</a><button type="button" class="cf-consent-manage">Preferências de estatísticas</button></nav></div></footer>
 <script>
 const $=x=>document.getElementById(x);let key="",last="",lastShareText="",lastExpression="";
 const HISTORY_KEY="cf-history-v1";
@@ -849,15 +849,15 @@ function shareContent(title,text){
 
 
 const learningGuides={
-basic:{title:"Como fazer contas básicas?",text:"A adição junta valores; a subtração encontra a diferença; a multiplicação reúne parcelas iguais; e a divisão reparte um total em partes iguais.",steps:["Digite o primeiro número no visor.","Escolha +, −, × ou ÷ e informe o segundo número.","Pressione = para ver o resultado. Na divisão, o segundo número não pode ser zero."],example:"Exemplos: 8 + 4 = 12; 12 ÷ 3 = 4",url:"como-fazer-contas-basicas/"},
-percent:{title:"Como calcular porcentagem?",text:"Porcentagem representa uma parte de cada 100. Para encontrar uma taxa percentual de um valor, multiplique o valor pela taxa e divida por 100.",steps:["Identifique o valor total e a porcentagem desejada.","Multiplique o valor total pela porcentagem.","Divida o resultado por 100."],example:"Exemplo: 20% de 150 → 150 × 20 ÷ 100 = 30",url:"como-calcular-porcentagem/"},
-discount:{title:"Como calcular um desconto?",text:"O desconto é uma parte do preço original. Primeiro descubra quanto será descontado e depois subtraia esse valor do preço inicial.",steps:["Calcule o desconto: preço × porcentagem ÷ 100.","Subtraia o desconto do preço original.","O resultado é o preço final a pagar."],example:"Exemplo: 10% de R$ 200 = R$ 20 de desconto; preço final: R$ 180",url:"como-calcular-desconto/"},
-rule:{title:"Como resolver regra de três?",text:"A regra de três ajuda a encontrar um valor desconhecido quando existe uma relação proporcional entre as grandezas. Organize os valores na mesma ordem antes de calcular.",steps:["Monte a relação com três valores conhecidos e um valor desconhecido (X).","Multiplique os valores em cruz conforme a proporção.","Divida pelo valor que ficou junto de X."],example:"Exemplo: 2 cadernos custam R$ 10; 4 cadernos custam X → X = (10 × 4) ÷ 2 = R$ 20",url:"como-resolver-regra-de-tres/"},
-average:{title:"Como calcular média simples?",text:"A média simples distribui igualmente o total entre os valores. Some todos os números e divida pela quantidade de números informados.",steps:["Some todos os valores.","Conte quantos valores foram somados.","Divida a soma pela quantidade."],example:"Exemplo: (6 + 8 + 10) ÷ 3 = 24 ÷ 3 = 8",url:"como-calcular-media-simples/"},
-increase:{title:"Como calcular aumento percentual?",text:"O aumento percentual mostra quanto um valor cresceu em relação ao valor inicial. Calcule o acréscimo e some-o ao valor original.",steps:["Calcule o acréscimo: valor inicial × porcentagem ÷ 100.","Some o acréscimo ao valor inicial.","O total é o novo valor após o reajuste."],example:"Exemplo: aumento de 10% sobre R$ 200 é R$ 20; novo valor: R$ 220",url:"como-calcular-aumento-percentual/"},
-sci:{title:"Como usar a calculadora científica?",text:"A calculadora científica realiza operações como potência, raiz quadrada, seno, cosseno, tangente e logaritmo de base 10. As funções trigonométricas deste site recebem ângulos em graus.",steps:["Escolha a função no campo Operação.","Informe o número e, quando necessário, o expoente.","Pressione Calcular para ver o resultado. Para raiz e log, respeite o domínio matemático da função."],example:"Exemplos: √81 = 9; 2³ = 8; seno de 30° = 0,5",url:"como-usar-calculadora-cientifica/"},
-grades:{title:"Como calcular a nota para passar?",text:"A média atual é calculada somando as três notas e dividindo por três. A estimativa da próxima nota considera quatro avaliações com o mesmo peso; confira se essa regra corresponde ao critério da sua escola.",steps:["Informe as três notas que você já recebeu.","Digite a média desejada.","A calculadora mostra a média atual e a nota necessária em uma quarta avaliação de mesmo peso."],example:"Exemplo: notas 6, 7 e 8 → média atual = 7. Para média 7 em quatro notas, precisa de 7 na próxima.",url:"como-calcular-nota-para-passar/"},
-interest:{title:"Como calcular juros simples e compostos?",text:"Nos juros simples, a taxa incide sempre sobre o capital inicial. Nos juros compostos, os juros entram no saldo e passam a render nos períodos seguintes.",steps:["Informe o capital inicial, a taxa por período e a quantidade de períodos.","Escolha juros simples ou compostos.","Compare o montante final. A taxa e o tempo precisam usar o mesmo período (por exemplo, taxa mensal e número de meses)."],example:"Exemplo: R$ 100 a 10% por 2 períodos: simples = R$ 120; compostos = R$ 121",url:"como-calcular-juros-simples-e-compostos/"}
+basic:{title:"Como fazer contas básicas?",text:"A adição junta valores; a subtração encontra a diferença; a multiplicação reúne parcelas iguais; e a divisão reparte um total em partes iguais.",steps:["Digite o primeiro número no visor.","Escolha +, −, × ou ÷ e informe o segundo número.","Pressione = para ver o resultado. Na divisão, o segundo número não pode ser zero."],example:"Exemplos: 8 + 4 = 12; 12 ÷ 3 = 4",url:"/como-fazer-contas-basicas/"},
+percent:{title:"Como calcular porcentagem?",text:"Porcentagem representa uma parte de cada 100. Para encontrar uma taxa percentual de um valor, multiplique o valor pela taxa e divida por 100.",steps:["Identifique o valor total e a porcentagem desejada.","Multiplique o valor total pela porcentagem.","Divida o resultado por 100."],example:"Exemplo: 20% de 150 → 150 × 20 ÷ 100 = 30",url:"/como-calcular-porcentagem/"},
+discount:{title:"Como calcular um desconto?",text:"O desconto é uma parte do preço original. Primeiro descubra quanto será descontado e depois subtraia esse valor do preço inicial.",steps:["Calcule o desconto: preço × porcentagem ÷ 100.","Subtraia o desconto do preço original.","O resultado é o preço final a pagar."],example:"Exemplo: 10% de R$ 200 = R$ 20 de desconto; preço final: R$ 180",url:"/como-calcular-desconto/"},
+rule:{title:"Como resolver regra de três?",text:"A regra de três ajuda a encontrar um valor desconhecido quando existe uma relação proporcional entre as grandezas. Organize os valores na mesma ordem antes de calcular.",steps:["Monte a relação com três valores conhecidos e um valor desconhecido (X).","Multiplique os valores em cruz conforme a proporção.","Divida pelo valor que ficou junto de X."],example:"Exemplo: 2 cadernos custam R$ 10; 4 cadernos custam X → X = (10 × 4) ÷ 2 = R$ 20",url:"/como-resolver-regra-de-tres/"},
+average:{title:"Como calcular média simples?",text:"A média simples distribui igualmente o total entre os valores. Some todos os números e divida pela quantidade de números informados.",steps:["Some todos os valores.","Conte quantos valores foram somados.","Divida a soma pela quantidade."],example:"Exemplo: (6 + 8 + 10) ÷ 3 = 24 ÷ 3 = 8",url:"/como-calcular-media-simples/"},
+increase:{title:"Como calcular aumento percentual?",text:"O aumento percentual mostra quanto um valor cresceu em relação ao valor inicial. Calcule o acréscimo e some-o ao valor original.",steps:["Calcule o acréscimo: valor inicial × porcentagem ÷ 100.","Some o acréscimo ao valor inicial.","O total é o novo valor após o reajuste."],example:"Exemplo: aumento de 10% sobre R$ 200 é R$ 20; novo valor: R$ 220",url:"/como-calcular-aumento-percentual/"},
+sci:{title:"Como usar a calculadora científica?",text:"A calculadora científica realiza operações como potência, raiz quadrada, seno, cosseno, tangente e logaritmo de base 10. As funções trigonométricas deste site recebem ângulos em graus.",steps:["Escolha a função no campo Operação.","Informe o número e, quando necessário, o expoente.","Pressione Calcular para ver o resultado. Para raiz e log, respeite o domínio matemático da função."],example:"Exemplos: √81 = 9; 2³ = 8; seno de 30° = 0,5",url:"/como-usar-calculadora-cientifica/"},
+grades:{title:"Como calcular a nota para passar?",text:"A média atual é calculada somando as três notas e dividindo por três. A estimativa da próxima nota considera quatro avaliações com o mesmo peso; confira se essa regra corresponde ao critério da sua escola.",steps:["Informe as três notas que você já recebeu.","Digite a média desejada.","A calculadora mostra a média atual e a nota necessária em uma quarta avaliação de mesmo peso."],example:"Exemplo: notas 6, 7 e 8 → média atual = 7. Para média 7 em quatro notas, precisa de 7 na próxima.",url:"/como-calcular-nota-para-passar/"},
+interest:{title:"Como calcular juros simples e compostos?",text:"Nos juros simples, a taxa incide sempre sobre o capital inicial. Nos juros compostos, os juros entram no saldo e passam a render nos períodos seguintes.",steps:["Informe o capital inicial, a taxa por período e a quantidade de períodos.","Escolha juros simples ou compostos.","Compare o montante final. A taxa e o tempo precisam usar o mesmo período (por exemplo, taxa mensal e número de meses)."],example:"Exemplo: R$ 100 a 10% por 2 períodos: simples = R$ 120; compostos = R$ 121",url:"/como-calcular-juros-simples-e-compostos/"}
 };
 const configs={basic:["Calculadora básica","a:Primeiro número|op:Operação:select:Somar,Subtrair,Multiplicar,Dividir|b:Segundo número"],percent:["Porcentagem","p:Porcentagem (%)|v:Valor"],discount:["Desconto","v:Preço original (R$)|p:Desconto (%)"],rule:["Regra de três","a:Valor A|b:Valor B|c:Valor C"],average:["Média simples","nums:Números separados por vírgula:text"],increase:["Reajuste / acréscimo","v:Valor inicial (R$)|p:Aumento (%)"],sci:["Calculadora científica","op:Operação:select:Quadrado,Raiz quadrada,Potência,Seno (graus),Cosseno (graus),Tangente (graus),Log base 10|a:Número|b:Expoente (para potência)"],grades:["Notas escolares","n1:Nota 1|n2:Nota 2|n3:Nota 3|goal:Média desejada"],interest:["Juros simples e compostos","capital:Capital inicial (R$)|rate:Taxa por período (%)|time:Quantidade de períodos|kind:Tipo:select:Simples,Compostos"]};
 let basicExpr="",basicDone=false,activeFieldId="";
@@ -1042,7 +1042,7 @@ document.addEventListener("keydown",function(ev){
 </script>
 
 <aside id="cf-analytics-consent" role="region" aria-label="Preferências de estatísticas" aria-describedby="cf-analytics-consent-text" hidden>
-  <p id="cf-analytics-consent-text"><strong>Estatísticas do site:</strong> o CalculaFácil usa o Google Analytics para entender quais páginas e calculadoras são mais visitadas. A medição só é ativada se você aceitar. Não enviamos os números digitados nas calculadoras para o Analytics. Você pode recusar ou mudar sua escolha depois. <a href="politica-de-privacidade/index.html">Saiba mais</a>.</p>
+  <p id="cf-analytics-consent-text"><strong>Estatísticas do site:</strong> o CalculaFácil usa o Google Analytics para entender quais páginas e calculadoras são mais visitadas. A medição só é ativada se você aceitar. Não enviamos os números digitados nas calculadoras para o Analytics. Você pode recusar ou mudar sua escolha depois. <a href="/politica-de-privacidade/">Saiba mais</a>.</p>
   <div class="cf-consent-actions">
     <button type="button" id="cf-analytics-accept">Aceitar estatísticas</button>
     <button type="button" id="cf-analytics-decline">Recusar</button>
