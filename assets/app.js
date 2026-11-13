@@ -126,7 +126,8 @@ function updateFormScreen(){
   if(wrap)wrap.classList.add("active-field");
   $("activeLabel").textContent=wrap?.querySelector("label")?.textContent||"Campo selecionado";
   const value=field?.value??"";
-  $("activeValue").textContent=(value?(key==="average"?value:value.replace(".",",")):"Digite usando o teclado");
+  $("activeValue").textContent=(value?(key==="average"?value:value.replace(".",",")):"Toque num campo e digite");
+  $("activeValue").classList.toggle("is-empty",!value);
 }
 function setActiveField(id){activeFieldId=id;updateFormScreen()}
 function open(k){
