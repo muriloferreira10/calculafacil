@@ -638,3 +638,9 @@ body.calc-open:not(.calc-page) .panel{display:none!important}
 /* D5 - contraste do laranja do título no modo claro */
 h1 span{color:#B85C00!important}
 body.dark h1 span{color:#F28C28!important}
+
+/* D6 - cards no celular */
+@media (max-width:520px){
+  .card-open strong{padding-right:0!important}
+  #cards .card:last-child:nth-child(odd){grid-column:1/-1}
+}
