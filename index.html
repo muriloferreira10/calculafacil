@@ -992,6 +992,48 @@ $("clear").onclick=()=>{$("fields").querySelectorAll("input").forEach(e=>e.value
 $("copy").onclick=()=>copyText(last,"Resultado copiado!");
 $("back").onclick=()=>{$("calc").style.display="none";$("cards").style.display="grid"};
 $("search").oninput=e=>{let q=e.target.value.toLowerCase();$("cards").querySelectorAll(".card").forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?"block":"none")};
+document.addEventListener("keydown",function(ev){
+  const calc=$("calc");
+  if(!calc||calc.style.display!=="block")return;
+  if(ev.ctrlKey||ev.metaKey||ev.altKey)return;
+  const t=ev.target;
+  if(t&&t.closest&&t.closest("#search,select,textarea,a,.cf-menu-wrap,#cf-analytics-consent,footer"))return;
+  const k=ev.key;
+  if(key==="basic"){
+    let action=null;
+    if(/^\d$/.test(k))action=k;
+    else if(k==="."||k===",")action=".";
+    else if(k==="+"||k==="-")action=k;
+    else if(k==="*")action="×";
+    else if(k==="/")action="÷";
+    else if(k==="%")action="%";
+    else if(k==="Enter"||k==="=")action="=";
+    else if(k==="Backspace")action="back";
+    else if(k==="Delete"||k==="Escape")action="clear";
+    if(action===null)return;
+    if(k==="Enter"&&t&&t.closest&&t.closest("button")&&!t.closest("#basicKeys"))return;
+    ev.preventDefault();
+    try{basicPress(action)}catch(err){$("basicOutput").textContent=err.message}
+    return;
+  }
+  if(!key)return;
+  let formKey=null;
+  if(/^\d$/.test(k))formKey=k;
+  else if(k==="."||k===",")formKey=k;
+  else if(k==="-")formKey="sign";
+  else if(k==="Backspace")formKey="back";
+  else if(k==="Delete")formKey="clear";
+  if(formKey!==null){ev.preventDefault();formKeyPress(formKey);return;}
+  if(k==="Tab"||k==="Enter"){
+    if(k==="Enter"&&t&&t.closest&&t.closest("button")&&!t.closest("#formKeys"))return;
+    const inputs=[...$("fields").querySelectorAll("input")];
+    const idx=inputs.findIndex(x=>x.id==="f"+activeFieldId);
+    const isLast=!inputs.length||idx===inputs.length-1;
+    if(k==="Enter"){ev.preventDefault();if(isLast||idx<0)run();else formKeyPress("next");return;}
+    if(ev.shiftKey||isLast||idx<0)return;
+    ev.preventDefault();formKeyPress("next");
+  }
+});
 </script>
 
 <aside id="cf-analytics-consent" role="region" aria-label="Preferências de estatísticas" aria-describedby="cf-analytics-consent-text" hidden>
