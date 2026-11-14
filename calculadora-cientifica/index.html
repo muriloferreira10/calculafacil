@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Calculadora científica online e grátis: potência, raiz quadrada, seno, cosseno, tangente e logaritmo de base 10, com ângulos em graus.">
+<title>Calculadora Científica Online Grátis | CalculaFácil</title>
+<link rel="canonical" href="https://calculafacilonline.netlify.app/calculadora-cientifica/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Calculadora Científica Online Grátis | CalculaFácil">
+<meta property="og:description" content="Calculadora científica online e grátis: potência, raiz quadrada, seno, cosseno, tangente e logaritmo de base 10, com ângulos em graus.">
+<meta property="og:url" content="https://calculafacilonline.netlify.app/calculadora-cientifica/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="CalculaFácil">
+<meta property="og:image" content="https://calculafacilonline.netlify.app/og-image.png">
+<meta property="og:image:alt" content="CalculaFácil: calculadoras online grátis">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora científica online – CalculaFácil",
+  "url": "https://calculafacilonline.netlify.app/calculadora-cientifica/",
+  "description": "Calculadora científica online e grátis: potência, raiz quadrada, seno, cosseno, tangente e logaritmo de base 10, com ângulos em graus.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "pt-BR",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  }
+}
+</script>
+</head>
+<body class="calc-page">
+<header class="cf-site-header"><div class="cf-header-inner">
+  <a class="cf-brand" href="#cards" aria-label="CalculaFácil, página inicial"><span class="cf-brand-mark">%</span><span>CalculaFácil</span></a>
+  <div class="cf-menu-wrap">
+    <button class="cf-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="cf-main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="cf-menu-panel" id="cf-main-menu" aria-label="Menu principal" hidden>
+      <div class="cf-menu-panel-top"><span>MENU</span><button class="cf-menu-close" type="button" aria-label="Fechar menu">×</button></div>
+      
+      <div class="cf-menu-group" role="group" aria-label="Navegação">
+        <span class="cf-menu-heading">NAVEGAÇÃO</span>
+        <a href="/">Início</a>
+        <a href="/#cards">Calculadoras</a>
+        <a href="/#guides-title">Guias nas calculadoras</a>
+        <a href="/?abrir=favoritas#cards">Minhas favoritas</a>
+        <a href="/?abrir=historico#cards">Histórico de cálculos</a>
+      </div>
+      <div class="cf-menu-divider" aria-hidden="true"></div>
+      <div class="cf-menu-group" role="group" aria-label="Sobre o site">
+        <span class="cf-menu-heading">SOBRE O SITE</span>
+        <a href="/sobre/">Sobre nós</a>
+        <a href="/contato/">Contato</a>
+        <a href="/politica-de-privacidade/">Política de privacidade</a>
+      </div>
+    </nav>
+  </div>
+</div></header>
+<main>
+<section class="hero"><h1>Calculadora científica online</h1><p>Faça quadrado, raiz quadrada, potência, seno, cosseno, tangente e logaritmo de base 10 em uma única página. As funções trigonométricas usam ângulos em graus. A calculadora avisa quando a operação não é possível, como a raiz de um número negativo.</p></section>
+<div class="toolbar"><button class="toolbtn" id="theme">🌙 Modo escuro</button><button class="toolbtn" id="showFav">☆ Favoritas</button><button class="toolbtn" id="showHistory">↶ Histórico</button><button class="toolbtn" id="share">Compartilhar site</button></div>
+<div class="panel" id="favPanel"><strong>Suas calculadoras favoritas</strong><p class="hint">As calculadoras marcadas com estrela aparecem primeiro na lista.</p><ul id="favList"></ul></div><div class="panel" id="historyPanel"><strong>Histórico salvo neste navegador</strong><p class="hint">Até 50 cálculos ficam salvos neste navegador, com a operação, o resultado e a data. Você pode apagar tudo quando quiser.</p><ul id="historyList"></ul><button class="toolbtn" id="clearHistory">Limpar histórico</button></div>
+<div hidden aria-hidden="true"><input id="search" tabindex="-1"><section id="cards"></section></div>
+<section class="calc" id="calc"><div class="top"><h2 id="title">Calculadora</h2><button class="secondary" id="back">← Voltar</button></div><div class="form-ui" id="formUI">
+  <div class="form-screen" aria-live="polite">
+    <div class="form-screen-label" id="activeLabel">Campo selecionado</div>
+    <div class="form-screen-value" id="activeValue">Selecione um campo</div>
+  </div>
+</div>
+<div class="fields" id="fields"></div>
+<div class="form-keypad-ui" id="formKeypadUI">
+  <div class="form-keys" id="formKeys" aria-label="Teclado numérico">
+    <button class="form-key utility" data-form-key="clear">C</button>
+    <button class="form-key utility" data-form-key="back">⌫</button>
+    <button class="form-key utility" data-form-key="sign">+/−</button>
+    <button class="form-key utility" data-form-key="next">Próximo</button>
+    <button class="form-key" data-form-key="7">7</button><button class="form-key" data-form-key="8">8</button><button class="form-key" data-form-key="9">9</button><button class="form-key" data-form-key=".">.</button>
+    <button class="form-key" data-form-key="4">4</button><button class="form-key" data-form-key="5">5</button><button class="form-key" data-form-key="6">6</button><button class="form-key utility" data-form-key=",">,</button>
+    <button class="form-key" data-form-key="1">1</button><button class="form-key" data-form-key="2">2</button><button class="form-key" data-form-key="3">3</button><button class="form-key" data-form-key="0">0</button>
+  </div>
+</div>
+<div class="basic-ui" id="basicUI"><div class="basic-screen"><div class="basic-expression" id="basicExpression">0</div><div class="basic-output" id="basicOutput">0</div></div><div class="basic-keys" id="basicKeys"><button class="basic-key utility" data-key="clear">C</button><button class="basic-key utility" data-key="back">⌫</button><button class="basic-key utility" data-key="%">%</button><button class="basic-key operator" data-key="÷">÷</button><button class="basic-key" data-key="7">7</button><button class="basic-key" data-key="8">8</button><button class="basic-key" data-key="9">9</button><button class="basic-key operator" data-key="×">×</button><button class="basic-key" data-key="4">4</button><button class="basic-key" data-key="5">5</button><button class="basic-key" data-key="6">6</button><button class="basic-key operator" data-key="-">−</button><button class="basic-key" data-key="1">1</button><button class="basic-key" data-key="2">2</button><button class="basic-key" data-key="3">3</button><button class="basic-key operator" data-key="+">+</button><button class="basic-key utility" data-key="sign">+/−</button><button class="basic-key" data-key="0">0</button><button class="basic-key" data-key=".">.</button><button class="basic-key equal" data-key="=">=</button></div></div><div class="actions basic-copy-actions"><button class="secondary" id="copyBasicResult" type="button" hidden>Copiar resultado</button><button class="secondary" id="copyBasicFull" type="button" hidden>Copiar conta + resultado</button><button class="secondary" id="shareBasic" type="button" hidden>Compartilhar esta conta</button></div><div class="actions" id="standardActions"><button class="primary" id="go">Calcular</button><button class="secondary" id="clear">Limpar</button><button class="secondary" id="copy">Copiar resultado</button></div><div class="result" id="result"><strong id="value"></strong><span id="explain"></span><button class="secondary" id="copyFull" type="button" hidden>Copiar conta + resultado</button><button class="secondary" id="shareResult" type="button" hidden>Compartilhar resultado</button></div><p class="hint" id="hint"></p>
+<section class="learning-card" id="learningCard" aria-live="polite">
+  <div class="learning-kicker">Aprenda enquanto calcula</div>
+  <h3 id="learningTitle">Como essa calculadora funciona</h3>
+  <p id="learningText">Escolha uma calculadora para ver uma explicação rápida e um exemplo.</p>
+  <ol class="learning-steps" id="learningSteps" aria-label="Passos para entender o cálculo"></ol>
+  <div class="learning-example" id="learningExample"></div>
+  <a class="learning-link" id="learningLink" href="/como-calcular-porcentagem/">Aprenda mais sobre este cálculo →</a>
+</section>
+</section>
+<p class="page-guide-link"><a class="learning-link" href="/como-usar-calculadora-cientifica/">Ver o guia completo: Como usar a calculadora científica →</a></p>
+<section class="other-calcs" aria-labelledby="other-calcs-title">
+  <h2 id="other-calcs-title">Outras calculadoras</h2>
+  <ul><li><a href="/calculadora-basica/">Calculadora básica</a></li><li><a href="/calculadora-de-porcentagem/">Calculadora de porcentagem</a></li><li><a href="/calculadora-de-desconto/">Calculadora de desconto</a></li><li><a href="/calculadora-regra-de-tres/">Calculadora de regra de três</a></li><li><a href="/calculadora-de-media/">Calculadora de média simples</a></li><li><a href="/calculadora-de-aumento-percentual/">Calculadora de aumento percentual</a></li><li><a href="/calculadora-de-notas/">Calculadora de notas escolares</a></li><li><a href="/calculadora-de-juros/">Calculadora de juros simples e compostos</a></li></ul>
+</section>
+</main>
+<footer><div class="wrap"><div>© 2026 CalculaFácil · Feito para facilitar suas contas.</div><nav class="footer-links" aria-label="Links institucionais"><a href="/sobre/">Sobre</a><a href="/contato/">Contato</a><a href="/politica-de-privacidade/">Política de Privacidade</a><button type="button" class="cf-consent-manage">Preferências de estatísticas</button></nav></div></footer>
+<script src="/assets/app.js"></script>
+<script>
+(function(){
+  $("back").onclick=function(){location.href="/";};
+  open("sci");
+  window.scrollTo({top:0,left:0,behavior:"instant"});
+})();
+</script>
+
+<aside id="cf-analytics-consent" role="region" aria-label="Preferências de estatísticas" aria-describedby="cf-analytics-consent-text" hidden>
+  <p id="cf-analytics-consent-text"><strong>Estatísticas:</strong> usamos o Google Analytics apenas se você aceitar. Não enviamos os números digitados nas calculadoras. <a href="/politica-de-privacidade/">Saiba mais</a>.</p>
+  <div class="cf-consent-actions">
+    <button type="button" id="cf-analytics-accept">Aceitar estatísticas</button>
+    <button type="button" id="cf-analytics-decline">Recusar</button>
+  </div>
+</aside>
+<script id="cf-analytics-consent-script">
+(function () {
+  'use strict';
+  var MEASUREMENT_ID = 'G-CK95TYT43P';
+  var STORAGE_KEY = 'cf_analytics_choice';
+  var banner = document.getElementById('cf-analytics-consent');
+  if (!banner) return;
+
+  function readChoice() {
+    try { return window.localStorage.getItem(STORAGE_KEY); }
+    catch (error) { return null; }
+  }
+  function saveChoice(value) {
+    try { window.localStorage.setItem(STORAGE_KEY, value); }
+    catch (error) { /* A escolha continua válida para esta visita. */ }
+  }
+  function showBanner() { banner.hidden = false; }
+  function hideBanner() { banner.hidden = true; }
+
+  function loadAnalytics() {
+    if (window.__cfAnalyticsLoaded) return;
+    window.__cfAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.gtag('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.gtag('js', new Date());
+    window.gtag('config', MEASUREMENT_ID);
+
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(MEASUREMENT_ID);
+    tag.onerror = function () { window.__cfAnalyticsLoadFailed = true; };
+    document.head.appendChild(tag);
+  }
+
+  function choose(value) {
+    saveChoice(value);
+    hideBanner();
+    if (value === 'accepted') {
+      loadAnalytics();
+    } else if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    }
+  }
+
+  var accept = document.getElementById('cf-analytics-accept');
+  var decline = document.getElementById('cf-analytics-decline');
+  if (accept) accept.addEventListener('click', function () { choose('accepted'); });
+  if (decline) decline.addEventListener('click', function () { choose('declined'); });
+
+  document.querySelectorAll('.cf-consent-manage').forEach(function (button) {
+    button.addEventListener('click', showBanner);
+  });
+
+  var choice = readChoice();
+  if (choice === 'accepted') loadAnalytics();
+  else if (choice === 'declined') hideBanner();
+  else showBanner();
+})();
+</script>
+
+
+<script id="cf-hamburger-menu-script">
+(function(){
+  'use strict';
+  var wrap=document.querySelector('.cf-menu-wrap');
+  if(!wrap)return;
+  var toggle=wrap.querySelector('.cf-menu-toggle');
+  var menu=wrap.querySelector('.cf-menu-panel');
+  var closeButton=menu?menu.querySelector('.cf-menu-close'):null;
+  if(!toggle||!menu)return;
+  function setOpen(open){
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    toggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    menu.hidden=!open;
+  }
+  toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});
+  if(closeButton)closeButton.addEventListener('click',function(){setOpen(false);toggle.focus();});
+  menu.addEventListener('click',function(event){if(event.target.closest('a'))setOpen(false);});
+  document.addEventListener('click',function(event){if(!wrap.contains(event.target))setOpen(false);});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setOpen(false);toggle.focus();}});
+  setOpen(false);
+})();
+</script>
+
+
+<script id="cf-menu-deep-links-script">
+(function(){
+  'use strict';
+  var action='';
+  try { action=new URLSearchParams(window.location.search).get('abrir') || ''; } catch(e) {}
+  if(action!=='favoritas' && action!=='historico') return;
+  var trigger=document.getElementById(action==='favoritas'?'showFav':'showHistory');
+  var panel=document.getElementById(action==='favoritas'?'favPanel':'historyPanel');
+  if(!trigger || !panel) return;
+  // A URL parameter opens the existing panel; it does not create a duplicate feature.
+  trigger.click();
+  window.setTimeout(function(){
+    try { panel.scrollIntoView({behavior:'smooth',block:'center'}); } catch(e) { panel.scrollIntoView(); }
+    var heading=panel.querySelector('strong');
+    if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}
+  },60);
+})();
+</script>
+</body>
+</html>
